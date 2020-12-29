@@ -1,0 +1,18 @@
+# Copyright (c) Jupyter Development Team.
+# Distributed under the terms of the Modified BSD License.
+# ARG BASE_CONTAINER=scipy
+# FROM $BASE_CONTAINER
+FROM scipy
+
+LABEL maintainer="HAPPIE CHAPPIE"
+
+USER root
+
+# ffmpeg for matplotlib anim & dvipng+cm-super for latex labels
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends ffmpeg dvipng cm-super && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+COPY exec.sh /home/jovyan/
+
+ENTRYPOINT sh exec.sh
