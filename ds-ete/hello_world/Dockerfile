@@ -66,3 +66,6 @@ RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
 USER $NB_UID
 
 WORKDIR $HOME
+# Command can be overwritten by providing a different command in the template directly.
+COPY app.py ./
+CMD ["app.lambda_handler"]

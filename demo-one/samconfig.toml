@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "aws-one"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-vbz0sepj7xpa"
+s3_prefix = "aws-one"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["HelloWorldFunction=.dkr.ecr.us-east-1.amazonaws.com/aws-one"]
